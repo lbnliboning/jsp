@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>BillCDN缓存刷新</title>
+    <meta charset="utf-8">
+    <meta name="viewport" id="viewport" content="width=640,user-scalable=0, target-densitydpi=320">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            display: block;
+            border: 1px solid rgb(0, 0, 0);
+            width: 500px;
+            height: 60px;
+            line-height: 40px;
+            font-size: 25px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            width: 100%;
+            height: 40px;
+            background: #444;
+            text-align: center;
+            color: #fff;
+            line-height: 40px;
+            margin: 0 auto;
+        }
+
+        .button {
+            padding: 6px 12px;
+            font-size: 30px;
+            font-weight: 400;
+            width: 300px;
+            line-height: 1.42857143;
+            text-align: center;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .text {
+            width: 80%;
+            border: 3px solid #000;
+            margin: 80 auto;
+
+        }
+
+        .text p {
+            text-indent: 2em;
+            margin: 0px;
+            padding: 0px;
+            line-height: 24px;
+            letter-spacing: 2px
+        }
+
+        .copyright {
+            color: #999;
+            font-size: .9em;
+            line-height: 1em;
+            margin: 2em 0 0 0;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h1>BillCDN缓存刷新</h1>
+    </div>
+    <div>
+        <input type="text" id='btn' placeholder="请输入BillCDN链接">
+
+
+        <button onclick="btn()" class="button" style="display:block;margin:0 auto">刷新</button>
+    </div>
+    <div class="text">
+        <h3 style="margin: bottom 10px;padding-left: 10px;">介绍</h3>
+        <p>
+            jsDelivr 提供的全球 CDN 加速，对于中国用户不太友好，于是我们开发了BillCDN服务</p>
+
+        <p>多吉云CDN提供了各种各样的SDK和API，本工具通过调用缓存刷新API的方式来刷新
+        </p>
+        <p><b>本工具基于多吉云接口开发，达到刷新的效果。</b></p>
+    </div>
+    <ul class="copyright">
+        <li>
+            Copyright © 2022-2024 <a href="https://cigh.cn/" title="按下“Ctrl+D”试试？"><b>BillCDN</b></a> All rights
+            reserved.</li>
+<a href="https://ipw.cn/ipv6webcheck/?site=v.cigh.cn" title="本站支持IPv6访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问" src="https://static.ipw.cn/icon/ipv6-s1.svg"></a>
+<a href="https://ipw.cn/ssl/?site=v.cigh.cn" title="本站支持SSL安全访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持SSL安全访问" src="https://static.ipw.cn/icon/ssl-s1.svg"></a>
+<div title="MySSL 安全签章" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=v.cigh.cn','MySSL安全签章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img src="https://sealres.myssl.com/seal/img/1x/seal.png?domain=v.cigh.cn" alt="MySSL 安全签章" style="width: 100px; height: auto; cursor: pointer"></div>
+    </ul>
+</style>
+    <script>
+        var x = document.getElementById("btn")//获取输入框元素
+        var oTi = document.getElementById('title');
+        function btn() {
+            // alert(x)
+            // console.log(x)
+            var reg = /http[s]{0,1}:\/\/([\w.]+\/?)\S*/;
+            if (!reg.test(x.value)) {
+                alert("你输入的网址不是以http://,https://开头，或者根本不是网址哦！");
+            }
+            else {
+                var url = x.value.replace(/bc.dusays.com/g, "purge.jsdelivr.net");
+                window.open(url, "_blank");
+            }
+        }
+    </script>
+</body>
+
+</html>
